@@ -62,3 +62,18 @@ Cypress.Commands.add('postCharacter', function(payLoad){
         return response
     })
 })
+
+
+//GET requisição que testa a obtenção de personagens
+Cypress.Commands.add('getCharacters', function(payLoad){
+    cy.api({
+        method: 'GET',
+        url:'/characters',
+        headers: {
+            Authorization: Cypress.env('token')
+        },
+        failOnStatusCode: false
+    }).then(function(response){
+        return response
+    })
+})

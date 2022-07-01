@@ -48,5 +48,62 @@ describe('POST /characters', function(){
            })
         })
     })
+    context('Validar os campos obrigatórios', function(){
+        it('Campos obrigatórios -  "Nome"', function(){
+            const character = {
+                alias: 'Professor X',
+                team: ['x-men, illuminatis'],
+                active: true
+            }
+            cy.postCharacter(character).then(function(response){
+                expect(response.status).to.be.equal(400);
+                cy.log(response.body.validation.body.message)
+                expect(response.body.validation.body.message).to.be.equal('\"name\" is required');
+            })
+
+        })
+
+        it('Campos obrigatórios - "Alias"', function(){
+            const character = {
+                name: 'Charles Xavier',
+                team: ['x-men, illuminatis'],
+                active: true
+            }
+
+            cy.postCharacter(character).then(function(response){
+                expect(response.status).to.be.equal(400);
+                cy.log(response.body.validation.body.message)
+                expect(response.body.validation.body.message).to.be.equal('\"alias\" is required');
+            })
+
+        })
+        it('Campos obrigatórios - "Team"', function(){
+            const character = {
+                name: 'Charles Xavier',
+                alias: 'Professor X',
+                active: true
+            }
+
+            cy.postCharacter(character).then(function(response){
+                expect(response.status).to.be.equal(400);
+                cy.log(response.body.validation.body.message)
+                expect(response.body.validation.body.message).to.be.equal('\"team\" is required');
+            })
+
+        })
+        it('Campos obrigatórios - "Active"', function(){
+            const character = {
+                name: 'Charles Xavier',
+                alias: 'Professor X',
+                team: ['x-men, illuminatis']
+            }
+
+            cy.postCharacter(character).then(function(response){
+                expect(response.status).to.be.equal(400);
+                cy.log(response.body.validation.body.message)
+                expect(response.body.validation.body.message).to.be.equal('\"active\" is required');
+            })
+
+        })
+    })
 })
-           
