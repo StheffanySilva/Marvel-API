@@ -4,11 +4,12 @@
   "description": "Projeto de automação na API da Maravel durante a 1a tempoada do Viver de Teste",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "back2thepast": "sh ./back2thepast.sh",
+    "test": "npm run back2thepast && npx cypress run"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StheffanySilva/vdt-season1-marvel-api.git"
+    "url": "git+https://github.com/StheffanySilva/Marvel-API.git"
   },
   "keywords": [
     "nodejs",
@@ -18,9 +19,9 @@
   "author": "Stheffany Silva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/StheffanySilva/vdt-season1-marvel-api/issues"
+    "url": "https://github.com/StheffanySilva/Marvel-API/issues"
   },
-  "homepage": "https://github.com/StheffanySilva/vdt-season1-marvel-api#readme",
+  "homepage": "https://github.com/StheffanySilva/Marvel-API#readme",
   "devDependencies": {
     "@bahmutov/cy-api": "^2.1.3",
     "cypress": "^9.7.0"

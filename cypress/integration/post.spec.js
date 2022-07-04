@@ -2,12 +2,6 @@
 
 describe('POST /characters', function(){
 
-    before(function(){
-      cy.back2ThePast()
-      cy.setToken()
-          
-})
-
     it('Deve cadastrar um personagem', function(){
 
        const character = {
